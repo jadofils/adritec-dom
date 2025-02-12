@@ -1,0 +1,104 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    color: #ff7200;
+    text-decoration: underline;
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px;
+    display: flex; /* Make the main container a flexbox */
+    flex-wrap: wrap; /* Allow sections to wrap to the next line if needed */
+    justify-content: space-between; /* Add space between sections */
+}
+
+section {
+    width: 25%; /* Each section takes up one-third of the container */
+    margin-bottom: 20px 10px; /* Add margin at the bottom */
+    display: flex; /* Make each section a flex container */
+    flex-direction: row; /* Arrange child elements in a row */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    background-color: #e2e2e2; /* Add a background color for visibility */
+    padding: 20px; /* Add padding inside sections */
+    border-radius: 5px; /* Add rounded corners */
+    box-sizing: border-box; /* Include padding and border in the element's width */
+}
+section:hover{
+    box-shadow: 0 0 5px rgba(0,0,0,0.2); /* Add a shadow when hovering */
+    transition: box-shadow 0.3s ease-in-out; /* Add a transition effect */
+    cursor: pointer; /* Change cursor on hover */
+    transform: scale(1.02); /* Add a slight scaling effect when hovering */
+    z-index: 2; /* Place the section above other elements */
+    opacity: 0.8; /* Make the section slightly transparent */
+    filter: drop-shadow(0 0 5px rgba(240, 3, 3, 0.2)); /* Add a drop shadow effect */    
+    padding:22px;
+    color:#ff7200;
+    background: #333;
+    
+}
+
+section#home {
+    background-color: #e2e2e2;
+}
+
+section#about {
+    background-color: #d2d2d2;
+}
+
+section#contact {
+    background-color: #c2c2c2;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    color: #ff7200;
+    font-size: 24px;
+   
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List Organizer</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f4f9;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        /* Task Input Section */
+        #task-input {
+            padding: 10px;
+            width: 60%;
+            max-width: 400px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        #task-input:focus {
+            border-color: #2ecc71;
+            box-shadow: 0 0 8px rgba(46, 204, 113, 0.5);
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            background: #3498db;
+            color: white;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: #2980b9;
+            transform: scale(1.05);
+        }
+
+        /* Task List */
+        #task-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #task-list li {
+            background: white;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        #task-list li:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Completed Task */
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        /* Buttons inside task list */
+        .task-btn {
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .delete-btn {
+            background: #e74c3c;
+        }
+
+        .delete-btn:hover {
+            background: #c0392b;
+            transform: scale(1.1);
+        }
+
+        .edit-btn {
+            background: #f39c12;
+        }
+
+        .edit-btn:hover {
+            background: #d68910;
+            transform: scale(1.1);
+        }
+
+        /* Filter & Toggle Visibility */
+        #filter-active-btn {
+            background: #2ecc71;
+        }
+
+        #filter-active-btn:hover {
+            background: #27ae60;
+        }
+
+        #toggle-list-btn {
+            background: #9b59b6;
+        }
+
+        #toggle-list-btn:hover {
+            background: #8e44ad;
+        }
+
+        /* Hide Tasks */
+        .hidden {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1 id="main-heading">My Task List</h1>
+    <button id="heading-color-changer">Change Heading Color</button>
+
+    <div>
+        <input type="text" id="task-input" placeholder="Add a new task...">
+        <button id="add-task-btn">Add Task</button>
+    </div>
+
+    <ul id="task-list">
+        <li>
+            Sample Task
+            <div>
+                <button class="edit-btn task-btn">✏ Edit</button>
+                <button class="delete-btn task-btn">❌ Delete</button>
+            </div>
+        </li>
+        <li>
+            Another Task
+            <div>
+                <button class="edit-btn task-btn">✏ Edit</button>
+                <button class="delete-btn task-btn">❌ Delete</button>
+            </div>
+        </li>
+    </ul>
+
+    <button id="filter-active-btn">Filter Tasks</button>
+    <button id="toggle-list-btn">Show/Hide Tasks</button>
+<script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Cozy Corner Café</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Header */
+    header {
+      background-color: #6f4e37;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 2rem;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    /* Menu Categories */
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px 20px;
+    }
+
+    .category-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      flex: 1 1 calc(33.333% - 40px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .category-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .category-card p {
+      margin-bottom: 20px;
+    }
+
+    .category-card button {
+      background-color: #6f4e37;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .category-card button:hover {
+      background-color: #8b6d5b;
+    }
+
+    /* Menu Items Grid */
+    .menu-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 40px 20px;
+    }
+
+    .menu-item {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      flex: 1 1 calc(33.333% - 40px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .menu-item img {
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .menu-item h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .menu-item p {
+      margin-bottom: 15px;
+    }
+
+    .menu-item .price {
+      font-weight: bold;
+      text-align: right;
+      color: #6f4e37;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer .contact-info, footer .social-media {
+      flex: 1;
+    }
+
+    footer .social-media {
+      text-align: right;
+    }
+
+    footer .social-media a {
+      margin-left: 10px;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    footer .social-media a:hover {
+      color: #ffd700;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .category-card {
+        flex: 1 1 100%;
+      }
+
+      .menu-item {
+        flex: 1 1 calc(50% - 20px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .menu-item {
+        flex: 1 1 100%;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      footer .social-media {
+        text-align: center;
+        margin-top: 20px;
+      }
+    }
+
+    /* Filter System */
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .filter-buttons button {
+      background-color: #6f4e37;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .filter-buttons button:hover {
+      background-color: #8b6d5b;
+    }
+
+    .menu-item {
+      display: none;
+    }
+
+    .menu-item.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>The Cozy Corner Café</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Menu Categories -->
+  <section class="categories">
+    <div class="category-card">
+      <h2>Coffee</h2>
+      <p>Explore our rich and aromatic coffee selections.</p>
+      <button onclick="filterMenu('coffee')">View Items</button>
+    </div>
+    <div class="category-card">
+      <h2>Pastries</h2>
+      <p>Indulge in our freshly baked pastries.</p>
+      <button onclick="filterMenu('pastries')">View Items</button>
+    </div>
+    <div class="category-card">
+      <h2>Sandwiches</h2>
+      <p>Savor our delicious and hearty sandwiches.</p>
+      <button onclick="filterMenu('sandwiches')">View Items</button>
+    </div>
+  </section>
+
+  <!-- Filter Buttons -->
+  <div class="filter-buttons">
+    <button onclick="filterMenu('all')">Show All</button>
+    <button onclick="filterMenu('coffee')">Coffee</button>
+    <button onclick="filterMenu('pastries')">Pastries</button>
+    <button onclick="filterMenu('sandwiches')">Sandwiches</button>
+  </div>
+
+  <!-- Menu Items Grid -->
+  <section class="menu-grid">
+    <div class="menu-item coffee show">
+      <img src="https://www.bing.com/ck/a?!&&p=e2ae8d98c60049a67a27a6f2a7be2d99259c9b6e9c2be18d0082a6a621e67ee0JmltdHM9MTczOTMxODQwMA&ptn=3&ver=2&hsh=4&fclid=073c2701-62cc-624a-1488-326f63cc63db&u=a1L2ltYWdlcy9zZWFyY2g_cT1vbmxpbmUlMjBwcm9kdWN0JTIwaW1hZ2VzJkZPUk09SVFGUkJBJmlkPTIzNTFCRTU5RjYzMzU2MzFCNjQ4NEQwMTYwMEEyOENGMTkwNTNGMzM&ntb=1" alt="Coffee 1">
+      <h3>Espresso</h3>
+      <p>A strong and flavorful shot of espresso.</p>
+      <p class="price">$3.50</p>
+    </div>
+    <div class="menu-item coffee show">
+      <img src="https://www.bing.com/ck/a?!&&p=6e8a07bd5b2f1b19f83fcc164bfaf5eea9912350cbe12194427ab310635661daJmltdHM9MTczOTMxODQwMA&ptn=3&ver=2&hsh=4&fclid=073c2701-62cc-624a-1488-326f63cc63db&u=a1L2ltYWdlcy9zZWFyY2g_cT1vbmxpbmUlMjBwcm9kdWN0JTIwaW1hZ2VzJkZPUk09SVFGUkJBJmlkPTIxMDYwREFENDdDOTZEMTZGMTVBNTg5OUMwNThGMzdEMUExMDcwMDg&ntb=1" alt="Coffee 2">
+      <h3>Cappuccino</h3>
+      <p>Espresso with steamed milk and foam.</p>
+      <p class="price">$4.00</p>
+    </div>
+    <div class="menu-item pastries show">
+      <img src="https://www.bing.com/ck/a?!&&p=345a8d5c68b057693ffd541633397996ba413f94c75870c1056461818f90eb93JmltdHM9MTczOTMxODQwMA&ptn=3&ver=2&hsh=4&fclid=073c2701-62cc-624a-1488-326f63cc63db&u=a1L2ltYWdlcy9zZWFyY2g_cT1vbmxpbmUlMjBwcm9kdWN0JTIwaW1hZ2VzJkZPUk09SVFGUkJBJmlkPUNBMENCNDk2Q0FFOTI2QzA4QUU3QTg2Nzk0RkI4MjZCODlDMzg5M0M&ntb=1" alt="Pastry 1">
+      <h3>Croissant</h3>
+      <p>Buttery and flaky French croissant.</p>
+      <p class="price">$2.50</p>
+    </div>
+    <div class="menu-item pastries show">
+      <img src="https://via.placeholder.com/300" alt="Pastry 2">
+      <h3>Blueberry Muffin</h3>
+      <p>Freshly baked muffin with blueberries.</p>
+      <p class="price">$3.00</p>
+    </div>
+    <div class="menu-item sandwiches show">
+      <img src="https://www.bing.com/ck/a?!&&p=67e7f7f8b3b392533853e82ed2b3e224416e9497f6fb913c318283100ffd459bJmltdHM9MTczOTMxODQwMA&ptn=3&ver=2&hsh=4&fclid=073c2701-62cc-624a-1488-326f63cc63db&u=a1L2ltYWdlcy9zZWFyY2g_cT1vbmxpbmUlMjBwcm9kdWN0JTIwaW1hZ2VzJkZPUk09SVFGUkJBJmlkPThCRTVCNTYzQTM5NzI0REFCNzNFODY5QjBCMjM5MjdDQTMzNTkxODQ&ntb=1" alt="Sandwich 1">
+      <h3>Turkey Club</h3>
+      <p>Turkey, bacon, lettuce, and tomato on toasted bread.</p>
+      <p class="price">$7.50</p>
+    </div>
+    <div class="menu-item sandwiches show">
+      <img src="https://www.bing.com/ck/a?!&&p=539bc76007bb5097c3979c7fb639aaa5076e5d2b4f3aa9df106ed2500c19b57aJmltdHM9MTczOTMxODQwMA&ptn=3&ver=2&hsh=4&fclid=073c2701-62cc-624a-1488-326f63cc63db&u=a1L2ltYWdlcy9zZWFyY2g_cT1vbmxpbmUlMjBwcm9kdWN0JTIwaW1hZ2VzJkZPUk09SVFGUkJBJmlkPUJFQzJDMUQ0NEJCODRBQUY0RkYyRTc5NENEMTlEMEI2NzZGQjdGRDk&ntb=1" alt="Sandwich 2">
+      <h3>Veggie Delight</h3>
+      <p>Fresh vegetables with hummus on whole grain bread.</p>
+      <p class="price">$6.50</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="contact-info">
+      <p>123 Café Lane, Cozy Town</p>
+      <p>Phone: (123) 456-7890</p>
+      <p>Email: info@cozycorner.com</p>
+    </div>
+    <div class="social-media">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Filter System -->
+  <script>
+    function filterMenu(category) {
+      const items = document.querySelectorAll('.menu-item');
+      items.forEach(item => {
+        if (category === 'all' || item.classList.contains(category)) {
+          item.classList.add('show');
+        } else {
+          item.classList.remove('show');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
